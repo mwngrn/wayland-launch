@@ -1,0 +1,15 @@
+[package]
+name = "wayland-launch"
+version = "0.1.0"
+description = "Launch a URI or file from a GTK/Tauri app so the launched app gets focus on GNOME/Wayland"
+authors = ["Mathias Wennergren"]
+edition = "2021"
+license = "MIT"
+
+# Versions match Tauri 2's GTK stack, so consumers don't get a second copy.
+[target.'cfg(target_os = "linux")'.dependencies]
+gtk = "0.18"
+gdkwayland-sys = "0.18"
+wayland-client = "0.31"
+wayland-backend = { version = "0.3", features = ["client_system"] }
+wayland-protocols = { version = "0.32", features = ["client", "staging"] }

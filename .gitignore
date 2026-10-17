@@ -1,0 +1,10 @@
+/target/
+Cargo.lock
+.idea/
+.vscode/settings.json
+*.swp
+.DS_Store
+.env
+*.key
+*.pem
+secrets/
