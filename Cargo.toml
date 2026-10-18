@@ -1,6 +1,6 @@
 [package]
 name = "wayland-launch"
-version = "0.1.0"
+version = "0.1.1"
 description = "Launch a URI or file from a GTK/Tauri app so the launched app gets focus on GNOME/Wayland"
 authors = ["Mathias Wennergren"]
 edition = "2021"

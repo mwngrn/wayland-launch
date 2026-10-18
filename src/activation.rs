@@ -169,7 +169,14 @@ impl Dispatch<wl_keyboard::WlKeyboard, ()> for State {
         _: &Connection,
         _: &QueueHandle<Self>,
     ) {
-        if let wl_keyboard::Event::Key { serial, .. } = event {
+        // Presses only: Mutter checks the serial against the latest key
+        // down, so a release (Ctrl let go after Ctrl+Enter) voids the token.
+        if let wl_keyboard::Event::Key {
+            serial,
+            state: WEnum::Value(wl_keyboard::KeyState::Pressed),
+            ..
+        } = event
+        {
             state.last_serial = Some(serial);
         }
     }
@@ -184,7 +191,12 @@ impl Dispatch<wl_pointer::WlPointer, ()> for State {
         _: &Connection,
         _: &QueueHandle<Self>,
     ) {
-        if let wl_pointer::Event::Button { serial, .. } = event {
+        if let wl_pointer::Event::Button {
+            serial,
+            state: WEnum::Value(wl_pointer::ButtonState::Pressed),
+            ..
+        } = event
+        {
             state.last_serial = Some(serial);
         }
     }
