@@ -3,7 +3,7 @@ Synlighet: privat
 
 # wayland-launch
 
-Liten Rust-crate (GTK/Wayland, ingen Tauri) som låter en Tauri-app öppna en annan app i förgrunden på GNOME/Wayland. Används av skriva. kommando och m2d har egna kopior som ska bytas mot den här. Arbetssätt: [[dev-wow]]. Varför ett eget repo: `docs/decisions/adr-001-own-repo-git-dependency.md`.
+Liten Rust-crate (GTK/Wayland, ingen Tauri) som låter en Tauri-app öppna en annan app i förgrunden på GNOME/Wayland. Används av skriva och m2d. kommando har en egen kopia som ska bytas mot den här. Arbetssätt: [[dev-wow]]. Varför ett eget repo: `docs/decisions/adr-001-own-repo-git-dependency.md`.
 
 ## Kommandon
 
