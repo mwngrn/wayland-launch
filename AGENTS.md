@@ -1,18 +1,19 @@
-Nivå: bas
-Synlighet: privat
+Level: base
+Visibility: public (MIT)
 
 # wayland-launch
 
-Liten Rust-crate (GTK/Wayland, ingen Tauri) som låter en Tauri-app öppna en annan app i förgrunden på GNOME/Wayland. Används av skriva och m2d. kommando har en egen kopia som ska bytas mot den här. Arbetssätt: [[dev-wow]]. Varför ett eget repo: `docs/decisions/adr-001-own-repo-git-dependency.md`.
+A small Rust crate (GTK/Wayland, no Tauri) that lets a Tauri app open another app in the foreground on GNOME/Wayland. Used by skriva, m2d and kommando. Why it is a repo of its own: `docs/decisions/adr-001-own-repo-git-dependency.md`.
 
-## Kommandon
+## Commands
 
 ```bash
-cargo clippy --all-targets
+cargo fmt --check
+cargo clippy --all-targets -- -D warnings   # same as CI
 ```
 
-Inga enhetstester: allt här pratar med en riktig Wayland-session och GDK. Verifiering sker i apparna (öppnas Obsidian framför?).
+No unit tests: everything here talks to a real Wayland session and GDK. Verification happens in the apps (does Obsidian open in front?).
 
 ## Release
 
-Konsumenterna låser en tagg (`vX.Y.Z`). Ändring → bumpa version, tagga, pusha taggen, bumpa taggen i apparna.
+Consumers lock a tag (`vX.Y.Z`). To release a change: bump `version` in `Cargo.toml`, tag, push the tag, then bump the tag in the apps.
